@@ -1,9 +1,6 @@
-import { decode, encode } from "https://deno.land/std@0.51.0/encoding/utf8.ts";
+import { encode } from "https://deno.land/std@0.51.0/encoding/utf8.ts";
 import { BufReader, readLines } from "https://deno.land/std@0.51.0/io/bufio.ts";
 import { rgb24 } from "https://deno.land/std@0.51.0/fmt/colors.ts";
-import {
-  readFileStr,
-} from "https://deno.land/std@0.51.0/fs/read_file_str.ts";
 
 interface Rgb {
   r: number;
