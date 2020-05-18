@@ -1,5 +1,6 @@
 import * as print from "./print.ts";
 import { parse } from "https://deno.land/std@0.51.0/flags/mod.ts";
+import { encode } from "https://deno.land/std@0.51.0/encoding/utf8.ts";
 
 var args = parse(Deno.args, {
   alias: {
@@ -26,8 +27,6 @@ With no FILE, or when FILE is -, read standard input.
     --spread, -p <f>:   Rainbow spread (default: 8.0)
       --freq, -F <f>:   Rainbow frequency (default: 0.3)
       --seed, -S <i>:   Rainbow seed, 0 = random (default: 0)
-  --duration, -d <i>:   Animation duration (default: 12)
-     --speed, -s <f>:   Animation speed (default: 20.0)
           --help, -h:   Show this message
 
 Examples:
@@ -46,6 +45,10 @@ Home page: <https://github.com/qwerttty/lolcat/>`;
     i -= 1;
     print.options.seed = o + i;
     print.println(lines[line]);
+
+    Deno.stdout.writeSync(
+      encode("\n"),
+    );
   }
 
   Deno.exit();

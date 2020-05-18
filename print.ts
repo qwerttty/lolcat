@@ -47,16 +47,16 @@ const println = function (line: string) {
   for (let i = 0; i < line.length; i++) {
     colorize(line[i], rainbow(options.freq, options.seed + i / options.spread));
   }
-
-  Deno.stdout.writeSync(
-    encode("\n"),
-  );
 };
 
 const fromPipe = async function () {
   for await (const line of readLines(Deno.stdin)) {
     options.seed += 1;
     println(line);
+
+    Deno.stdout.writeSync(
+      encode("\n"),
+    );
   }
 };
 

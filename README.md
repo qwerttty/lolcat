@@ -8,15 +8,8 @@ deno install https://deno.land/x/lolcat/lolcat.ts
 
 ## Examples
 
-**Output of other command:**
-
 ```
 fortune | lolcat
-```
-
-**Text in a file:**
-
-```
 deno run --allow-read https://deno.land/x/lolcat/lolcat.ts printme.txt
 ```
 
